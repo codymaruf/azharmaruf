@@ -1,9 +1,9 @@
 import Hero from './Sections/Hero'
 import About from './Sections/About'
-import Programms from './Sections/Programms'
-import Timing from './Sections/Timing'
+import Projects from './Sections/Projects'
+import Service from './Sections/Service'
 import Testimonial from './Sections/Testimonial'
-import Location from './Sections/Location'
+import Animation from './Sections/Animation'
 import Contact from './Sections/Contact'
 import Footer from './Sections/Footer'
 import Nav from './Sections/Nav'
@@ -15,10 +15,9 @@ const App = () => {
       <Nav />
       <Hero />
       <About />
-      <Programms />
-      <Timing />
-      <Testimonial  />
-      <Location />
+      <Projects />
+      <Animation />
+      <Service />   
       <Contact />
       <Footer />
     </section>

@@ -1,58 +1,39 @@
-import { Facebook } from "lucide-react";
+import React from 'react';
+import { FaFacebookF, FaTwitter } from 'react-icons/fa';
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-[#5c1a89] text-white font-inter py-8 px-6 md:px-16">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
-        {/* Logo / Brand */}
-        <div className="text-2xl font-bold tracking-wide text-center md:text-left w-full md:w-auto flex flex-col items-center gap-3">
-          <img
-            src="/assets/gymCo.jpg"
-            alt="GymCo Logo"
-            className="h-15 rounded-xl object-cover"
-          />
-          <spn>GymCo<span className="text-[#fe6c1d]">Female</span></spn>
+    <footer className="bg-[var(--color-background)] text-[var(--color-text-accent)] py-8 px-6 sm:px-25 border-t border-white/10">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-[var(--font-inter)]">
+        {/* Left - Name */}
+        <div className="text-center md:text-left">
+          &copy; {new Date().getFullYear()} Azhar Maruf. All rights reserved.
         </div>
 
-        {/* Navigation Links */}
-        <nav className="flex flex-col gap-4 text-sm font-semibold justify-center tablet:flex-row">
-          <a href="#about" className="hover:text-[#fe6c1d] transition text-center">
-            About
-          </a>
-          <a href="#services" className="hover:text-[#fe6c1d] transition text-center">
-            Programs
-          </a>
-          <a href="#schedule" className="hover:text-[#fe6c1d] transition text-center">
-            Schedule
-          </a>
-          <a href="#location" className="hover:text-[#fe6c1d] transition text-center">
-            Location
-          </a>
-          <a href="#contact" className="hover:text-[#fe6c1d] transition text-center">
-            Contact
-          </a>
-        </nav>
-
-        {/* Contact Info */}
-        <div className="flex flex-col items-center md:items-end space-y-2 text-sm">
-          <p>📞 +880 1975-572834</p>
-          <p>✉️ gymcofemale@gmail.com</p>
-          <p className="text-center md:text-right">Mirabazar, Mousumi 1, Sylhet, Bangladesh</p>
+        {/* Right - Social Links */}
+        <div className="flex gap-4 items-center">
           <a
-            href="https://www.facebook.com/GymCo2018/"
+            href="https://x.com/azharmarufworld"
             target="_blank"
-            rel="noreferrer"
-            className="mt-3 p-2 rounded-full hover:bg-[#fe6c1d] hover:text-[#5c1a89] transition"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--color-secondary)] transition-colors font-bold text-lg"
+            aria-label="X (formerly Twitter)"
+          >
+            X
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61574481545132"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--color-secondary)] transition-colors"
             aria-label="Facebook"
           >
-            <Facebook size={28} />
+            <FaFacebookF size={18} />
           </a>
         </div>
-      </div>
-
-      <div className="text-center text-xs text-[#fe6c1d] mt-6 select-none">
-        &copy; {new Date().getFullYear()} GymCo Female. All rights reserved.
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

@@ -1,128 +1,97 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
-export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    from_name: '',
+    from_email: '',
+    message: '',
   });
+  const [status, setStatus] = useState(null);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    // Here you can add form validation & submission logic (e.g., API call)
-    alert("Thank you for contacting us! We'll get back to you soon.");
-    setForm({ name: "", email: "", phone: "", message: "" });
+
+    // Replace these with your EmailJS values
+    const serviceID = 'service_46n9n9f';
+    const templateID = 'template_uyhhian';
+    const publicKey = 'PB5f3T1ffg1KWQX2F';
+
+    emailjs
+      .send(serviceID, templateID, formData, publicKey)
+      .then(() => {
+        setStatus('SUCCESS');
+        setFormData({ from_name: '', from_email: '', message: '' });
+      })
+      .catch(() => {
+        setStatus('FAILED');
+      });
   };
 
   return (
-    <section id="contact" className="py-16 px-6 md:px-16 bg-white font-inter">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-        {/* Contact Info */}
-        <div className="space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#5c1a89]">
-            Get In Touch
-          </h2>
-          <p className="text-gray-600 leading-relaxed text-base">
-            Have questions or want to join GymCo Female? Fill out the form and
-            our team will reach out to you shortly.
-          </p>
-          <div className="text-gray-700 space-y-3">
-            <p>
-              <strong>Location:</strong> Mirabazar, Mousumi 1, Sylhet, Bangladesh
-            </p>
-            <p>
-              <strong>Phone:</strong>{" "}
-              <a href="tel:+8801975572834" className="text-[#fe6c1d] hover:underline">
-                +880 1975-572834
-              </a>
-            </p>
-            <p>
-              <strong>Email:</strong>{" "}
-              <a href="mailto:gymcofemale@gmail.com" className="text-[#f21c8b] hover:underline">
-                gymcofemale@gmail.com
-              </a>
-            </p>
-          </div>
-        </div>
-
-        {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="name" className="block mb-1 font-medium text-gray-700">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              required
-              value={form.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5c1a89]"
-              placeholder="Your full name"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block mb-1 font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              required
-              value={form.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5c1a89]"
-              placeholder="your.email@example.com"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block mb-1 font-medium text-gray-700">
-              Phone
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              value={form.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5c1a89]"
-              placeholder="+880 1XXXXXXXXX"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="message" className="block mb-1 font-medium text-gray-700">
-              Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              rows="4"
-              required
-              value={form.message}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5c1a89]"
-              placeholder="Write your message here..."
-            ></textarea>
-          </div>
-
+    <section id="contact" className="bg-[var(--color-background)] text-[var(--color-text-primary)] py-20 px-6">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-4xl font-extrabold font-[var(--font-bebas)] mb-6 text-center">Contact Me</h2>
+        <form onSubmit={sendEmail} className="flex flex-col gap-6">
+          <input
+            type="text"
+            name="from_name"
+            placeholder="Your Name"
+            required
+            value={formData.from_name}
+            onChange={handleChange}
+            className="p-4 rounded-md bg-gray-800 border border-gray-600 text-white focus:outline-none focus:border-[var(--color-secondary)]"
+          />
+          <input
+            type="email"
+            name="from_email"
+            placeholder="Your Email"
+            required
+            value={formData.from_email}
+            onChange={handleChange}
+            className="p-4 rounded-md bg-gray-800 border border-gray-600 text-white focus:outline-none focus:border-[var(--color-secondary)]"
+          />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            required
+            value={formData.message}
+            onChange={handleChange}
+            className="p-4 rounded-md bg-gray-800 border border-gray-600 text-white focus:outline-none focus:border-[var(--color-secondary)] resize-none"
+          />
           <button
             type="submit"
-            className="w-full py-3 bg-[#fe6c1d] text-white font-semibold rounded-full hover:bg-[#f21c8b] transition duration-300"
+            className="bg-[var(--color-secondary)] text-black font-semibold py-3 rounded-md hover:bg-yellow-400 transition"
           >
             Send Message
           </button>
         </form>
+
+        {status === 'SUCCESS' && (
+          <p className="mt-4 text-green-400 text-center font-medium">Thanks! Your message was sent.</p>
+        )}
+        {status === 'FAILED' && (
+          <p className="mt-4 text-red-500 text-center font-medium">
+            Oops! Something went wrong. Please try again.
+          </p>
+        )}
+
+        <div className="mt-10 text-center text-gray-400">
+          <p>Or reach me directly at:</p>
+          <p>📞 +8801790400895</p>
+          <p>✉️ azharmaruf900@gmail.com</p>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default ContactForm;
