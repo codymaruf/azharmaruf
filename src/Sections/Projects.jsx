@@ -13,13 +13,6 @@ const projects = [
     note: '⚠️ Demo site — built to pitch a real gym but not currently in use.',
   },
   {
-    title: 'The Sylhet Gym',
-    image: '/assets/sylhetGym.png',
-    url: 'https://thesylhetgym.vercel.app/',
-    tags: ['Live Demo', 'Dark UI', 'Responsive'],
-    note: '⚠️ Demo site — inspired by a real gym, not an active client site.',
-  },
-  {
     title: 'Boot Camp Seven',
     image: '/assets/bootCamp.png',
     url: 'https://boot-camp-seven.vercel.app/',
