@@ -53,7 +53,7 @@ const Projects = () => {
       className="w-full bg-[var(--color-background)] text-[var(--color-text-primary)] py-20 px-6"
     >
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold font-[var(--font-bebas)] mb-4">
+        <h2 className="text-4xl md:text-5xl font-extrabold font-[var(--font-bebas)] mb-8">
           Recent&nbsp;Projects
         </h2>
 
