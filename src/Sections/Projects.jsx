@@ -17,7 +17,7 @@ const projects = [
     image: '/assets/bootCamp.png',
     url: 'https://boot-camp-seven.vercel.app/',
     tags: ['Live Demo', 'Clean Design', 'React'],
-    note: '⚠️ Demo project — made for pitching, not in active use.',
+    note: '⚠️ Will be in use very soon',
   },
 ];
 
@@ -56,9 +56,6 @@ const Projects = () => {
         <h2 className="text-4xl md:text-5xl font-extrabold font-[var(--font-bebas)] mb-4">
           Recent&nbsp;Projects
         </h2>
-        <p className="text-gray-400 text-base mb-12 max-w-2xl mx-auto">
-          These demo websites were designed for real fitness brands. They weren’t purchased, but represent the level of quality I deliver.
-        </p>
 
         <div
           ref={containerRef}
