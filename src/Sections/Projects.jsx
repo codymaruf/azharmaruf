@@ -15,9 +15,8 @@ const projects = [
   {
     title: 'Boot Camp Seven',
     image: '/assets/bootCamp.png',
-    url: 'https://boot-camp-seven.vercel.app/',
+    url: 'https://bootcampfitness.club',
     tags: ['Live Demo', 'Clean Design', 'React'],
-    note: '⚠️ Will be in use very soon',
   },
 ];
 
