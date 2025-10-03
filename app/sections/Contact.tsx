@@ -12,7 +12,7 @@ export default function ContactSection() {
 
   const contacts = [
     { icon: Mail, href: 'mailto:azharmaruf900@gmail.com' },
-    { icon: MessageCircle, href: 'https://wa.me/01890817157' },
+    { icon: MessageCircle, href: 'https://wa.me/+8801890817157' },
     { icon: Linkedin, href: 'https://linkedin.com/in/azhar-maruf-008080357' },
     { icon: X, href: 'https://x.com/azharmarufworld' },
     { icon: Facebook, href: 'https://facebook.com/profile.php?id=61574481545132&sk=following' },
