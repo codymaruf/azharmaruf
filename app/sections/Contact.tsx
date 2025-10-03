@@ -57,7 +57,7 @@ export default function ContactSection() {
         </p>
 
         {/* Contact Icons Only */}
-        <div className={`flex justify-center md:justify-start gap-6 mb-12 transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`flex flex-wrap justify-center md:justify-start gap-6 mb-12 transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {contacts.map((contact, idx) => {
             const Icon = contact.icon;
             return (
@@ -66,7 +66,7 @@ export default function ContactSection() {
                 href={contact.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-2xl transition-transform duration-300 hover:scale-110 flex items-center justify-center"
+                className="p-4 w-16 h-16 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-2xl transition-transform duration-300 hover:scale-110"
               >
                 <Icon className="w-8 h-8 text-amber-800"/>
               </a>
