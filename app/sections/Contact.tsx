@@ -11,17 +11,17 @@ export default function ContactSection() {
   }, []);
 
   const contacts = [
-    { label: 'Email', value: 'azharmaruf900@gmail.com', icon: Mail, href: 'mailto:azharmaruf900@gmail.com' },
-    { label: 'WhatsApp', value: '01890817157', icon: MessageCircle, href: 'https://wa.me/01890817157' },
-    { label: 'LinkedIn', value: 'azhar-maruf', icon: Linkedin, href: 'https://linkedin.com/in/azhar-maruf-008080357' },
-    { label: 'X', value: '@azharmarufworld', icon: X, href: 'https://x.com/azharmarufworld' },
-    { label: 'Facebook', value: 'Follow', icon: Facebook, href: 'https://facebook.com/profile.php?id=61574481545132&sk=following' },
-    { label: 'YouTube', value: '@azharmaruf', icon: Youtube, href: 'https://youtube.com/@azharmaruf' }
+    { icon: Mail, href: 'mailto:azharmaruf900@gmail.com' },
+    { icon: MessageCircle, href: 'https://wa.me/01890817157' },
+    { icon: Linkedin, href: 'https://linkedin.com/in/azhar-maruf-008080357' },
+    { icon: X, href: 'https://x.com/azharmarufworld' },
+    { icon: Facebook, href: 'https://facebook.com/profile.php?id=61574481545132&sk=following' },
+    { icon: Youtube, href: 'https://youtube.com/@azharmaruf' }
   ];
 
   return (
     <section className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 py-32 px-6 overflow-hidden">
-      
+
       {/* Background floating orbs */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(6)].map((_, i) => (
@@ -38,7 +38,6 @@ export default function ContactSection() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto text-center md:text-left">
-
         {/* Section Title */}
         <p className={`text-sm md:text-base text-amber-800 font-semibold uppercase mb-3 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
           Contact
@@ -57,21 +56,21 @@ export default function ContactSection() {
           Ready to increase leads, boost sales, and build a strong online presence? Get in touch, and let’s make your brand stand out.
         </p>
 
-        {/* Contact Options */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12 transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* Contact Icons Only */}
+        <div className={`flex justify-center md:justify-start gap-6 mb-12 transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {contacts.map((contact, idx) => {
             const Icon = contact.icon;
             return (
-              <a key={idx} href={contact.href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 p-4 bg-white/70 backdrop-blur-sm rounded-2xl border border-amber-100 hover:border-amber-300 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-amber-400 to-orange-400 text-white group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-5 h-5"/>
-                </div>
-                <div className="text-left">
-                  <p className="text-sm font-semibold text-gray-800">{contact.label}</p>
-                  <p className="text-gray-600 text-sm">{contact.value}</p>
-                </div>
+              <a
+                key={idx}
+                href={contact.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-2xl transition-transform duration-300 hover:scale-110 flex items-center justify-center"
+              >
+                <Icon className="w-8 h-8 text-amber-800"/>
               </a>
-            )
+            );
           })}
         </div>
 
