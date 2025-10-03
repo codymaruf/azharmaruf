@@ -158,7 +158,18 @@ export default function HeroSection() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
             >
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
+              
+              
+              {/* Add scroll to Service section */}
+              <button
+                className="group relative px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                onClick={() => {
+                  const section = document.getElementById('service-section');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 <span className="relative z-10 flex items-center gap-2">
                   See How I Can Help
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

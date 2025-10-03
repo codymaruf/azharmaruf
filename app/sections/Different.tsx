@@ -52,10 +52,10 @@ export default function WhyDifferentSection() {
         <div className={`flex justify-center md:justify-start gap-4 transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <button className="group relative px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden">
             <span className="relative z-10 flex items-center gap-2">
-              Hire Me Today
+              <a href="mailto:azharmaruf900@gmail.com">Hire Me Today</a>
               <Sparkles className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
         </div>
 

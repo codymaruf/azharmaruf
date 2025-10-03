@@ -17,9 +17,13 @@ const clashDisplay = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Your Name - Portfolio',
+  title: 'Azhar Maruf - Portfolio',
   description: 'Web Development, Cinematography, Filmmaking & Storytelling',
   keywords: ['web development', 'cinematography', 'filmmaking', 'portfolio'],
+   icons: {
+  icon: '/profile.jpg',   // this is your website icon for most browsers
+  apple: '/profile.jpg',  // this is used on Apple devices (iPhone, iPad)
+}
 }
 
 export default function RootLayout({
