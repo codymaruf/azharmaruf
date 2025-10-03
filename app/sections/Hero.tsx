@@ -107,14 +107,15 @@ export default function HeroSection() {
         {/* Main Headline */}
         <div className="max-w-5xl">
           <h1 
-            className={`text-6xl font-clash md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-6 transition-all duration-1000 delay-200 ${
-              isLoaded ? 'opacity-100 font-clash translate-y-0' : 'opacity-0 font-clash translate-y-10'
+            className={`text-6xl md:text-7xl lg:text-8xl font-semibold leading-[1.1] mb-6 transition-all duration-1000 delay-200 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
+            style={{ fontFamily: 'var(--font-clash), sans-serif' }}
           >
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-900 via-orange-800 to-rose-900 font-display">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-900 via-orange-800 to-rose-900">
               Grow Your
             </span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-800 via-rose-800 to-pink-900 font-display">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-800 via-rose-800 to-pink-900">
               Business Online
             </span>
           </h1>
