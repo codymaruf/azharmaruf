@@ -133,7 +133,7 @@ export default function HeroSection() {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            I help brands and businesses build websites, create video content, and present themselves online—working even while you're taking a break.
+            I help brands and businesses build websites, create video content, and present themselves online—working even while you&apos;re taking a break.
           </p>
 
           {/* CTA Buttons */}
