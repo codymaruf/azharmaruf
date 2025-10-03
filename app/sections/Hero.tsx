@@ -216,7 +216,7 @@ export default function HeroSection() {
 
       {/* Scroll Indicator */}
       <div 
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-1000 ${
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-30 transition-all duration-1000 delay-1000 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
