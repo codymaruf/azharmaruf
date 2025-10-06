@@ -1,5 +1,6 @@
 'use client';
 
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect, useRef } from 'react';
 import { Camera, Code, Film, TrendingUp, ArrowRight, Play, Sparkles, LucideIcon } from 'lucide-react';
 import Form from './Form';
@@ -143,7 +144,7 @@ export default function HeroSection() {
               }`}
             >
               {/* I help brands and businesses build websites, create video content, and present themselves online—working even while you&apos;re taking a break. */}
-              We&apos;ll create a simple, professional landing page for your photography business. Just fill the form below – no upfront cost. You only pay if you love it and want to own it.
+              We'll create a simple, professional landing page for your photography business. Just fill the form below – no upfront cost. You only pay if you love it and want to own it.
             </p>
 
            
