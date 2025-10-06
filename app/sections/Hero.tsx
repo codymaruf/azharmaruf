@@ -143,7 +143,7 @@ export default function HeroSection() {
               }`}
             >
               {/* I help brands and businesses build websites, create video content, and present themselves online—working even while you&apos;re taking a break. */}
-              We’ll create a simple, professional landing page for your photography business. Just fill the form below – no upfront cost. You only pay if you love it and want to own it.
+              We&apos;ll create a simple, professional landing page for your photography business. Just fill the form below – no upfront cost. You only pay if you love it and want to own it.
             </p>
 
            
