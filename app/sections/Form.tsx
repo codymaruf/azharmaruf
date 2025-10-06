@@ -106,7 +106,7 @@ export default function FreeLandingForm() {
         </form>
       ) : (
         <div className="relative text-center text-white font-clashDisplay font-semibold text-xl p-6 bg-gray-900/80 rounded-3xl backdrop-blur-md border border-white/20 shadow-lg">
-          Thanks! We received your submission. We'll contact you soon.
+          Thanks! We received your submission. We&apos;ll contact you soon.
         </div>
       )}
 
