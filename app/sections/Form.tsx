@@ -6,10 +6,38 @@ import React, { useState } from 'react';
 
 export default function FreeLandingForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent page reload
+    setLoading(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch('https://formspree.io/f/mldplyyo', {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Submission failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 md:px-10 py-10">
-      
       {/* Floating Orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute w-48 h-48 rounded-full bg-gradient-to-br from-amber-400/20 to-orange-500/20 blur-3xl animate-float"
@@ -20,60 +48,35 @@ export default function FreeLandingForm() {
 
       {!submitted ? (
         <form
-          action="https://formspree.io/f/mldplyyo"
-          method="POST"
+          onSubmit={handleSubmit}
           className="relative flex flex-col gap-4 bg-white/40 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-3xl border border-white/20 shadow-lg"
-          onSubmit={() => setSubmitted(true)}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 font-clashDisplay mb-6 text-center sm:text-left"
-          style={{ fontFamily: 'var(--font-clash), sans-serif' }}
-          >
-            Get Your Free Landing Page
-          </h2>
+          <h2
+  className="text-2xl sm:text-3xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-900 via-orange-800 to-rose-900 font-clashDisplay mb-6 text-center sm:text-left"
+  style={{ fontFamily: 'var(--font-clash), sans-serif' }}
+>
+  Get Your Free Landing Page
+</h2>
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            className="p-3 rounded-lg border border-white/30 bg-orange-100 text-white placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            className="p-3 rounded-lg border border-white/30 bg-orange-100 text-white placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full"
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="WhatsApp / Phone (Optional)"
-            className="p-3 rounded-lg border border-white/30 bg-orange-100 text-white placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full"
-          />
-          <input
-            type="text"
-            name="website"
-            placeholder="Website / Landing Page Name"
-            className="p-3 rounded-lg border border-white/30 bg-orange-100 text-white placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full"
-          />
 
-          <label className="flex flex-col gap-2 text-red-900">
+          <input type="text" name="name" placeholder="Your Name" required className="p-3 rounded-lg border border-white/30 bg-orange-100 text-black placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full" />
+          <input type="email" name="email" placeholder="Your Email" required className="p-3 rounded-lg border border-white/30 bg-orange-100 text-black placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full" />
+          <input type="tel" name="phone" placeholder="WhatsApp / Phone (Optional)" className="p-3 rounded-lg border border-white/30 bg-orange-100 text-black placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full" />
+          <input type="url" name="website" placeholder="Your business platform / social media / website link" className="p-3 rounded-lg border border-white/30 bg-orange-100 text-black placeholder-gray-400 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full" />
+
+          {/* <label className="flex flex-col gap-2 text-red-900">
             <span className="font-medium">Submit Your Photos & Videos (Optional)</span>
-            <input
-              type="file"
-              name="files"
-              multiple
-              accept="image/*,video/*"
-              className="p-2 rounded-lg border border-white/30 bg-orange-200 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full"
-            />
-          </label>
+            <input type="file" name="files" multiple accept="image/*,video/*" className="p-2 rounded-lg border border-white/30 bg-orange-200 focus:ring-2 focus:ring-amber-400 focus:outline-none w-full" />
+          </label> */}
 
           <button
             type="submit"
-            className="mt-4 px-6 py-3 text-white font-clashDisplay font-semibold rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 shadow-lg hover:scale-105 transition-transform duration-300 w-full sm:w-auto self-center"
+            disabled={loading}
+            className={`mt-4 px-6 py-3 text-red-900 font-clashDisplay font-semibold rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 shadow-lg hover:scale-105 transition-transform duration-300 w-full sm:w-auto self-center ${
+              loading ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
-            Get My Free Landing Page
+            {loading ? 'Submitting...' : 'Get My Free Landing Page'}
           </button>
         </form>
       ) : (

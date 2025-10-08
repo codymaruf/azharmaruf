@@ -120,7 +120,7 @@ export default function HeroSection() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ fontFamily: 'var(--font-clash), sans-serif' }}
-            >
+            > 
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-900 via-orange-800 to-rose-900">
                 Wedding Photographers: Get
               </span>

@@ -17,7 +17,7 @@ const clashDisplay = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Azhar Maruf - Portfolio',
+  title: 'Azhar Maruf',
   description: 'Web Development, Cinematography, Filmmaking & Storytelling',
   keywords: ['web development', 'cinematography', 'filmmaking', 'portfolio'],
    icons: {
