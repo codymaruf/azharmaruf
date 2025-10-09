@@ -1,20 +1,26 @@
+'use client';
+
 import HeroSection from './sections/Hero';
-// import Why from './sections/Why';
-// import Service from './sections/Service';
-// import Different from './sections/Different';
-// import Contact from './sections/Contact';
-// import PortfolioSection from './sections/Prtfolio';
+import Background from './Background';
+import Service from './sections/Service';
+import Different from './sections/Different';
+import Contact from './sections/Contact';
+import PortfolioSection from './sections/Prtfolio';
+import Why from './sections/Why';
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
-      {/* <PortfolioSection /> */}
-      {/* <Why />
+      <Background />
+      <PortfolioSection /> 
+      <Why />
       <Service />
-      <Different /> */}
-      {/* <Contact /> */}
+      <Different />
+      <Contact />
       
     </main>
   )
 }
+
+

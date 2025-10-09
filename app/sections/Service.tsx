@@ -32,7 +32,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="service-section" className="relative bg-gradient-to-b from-rose-50 via-orange-50 to-amber-50 py-32 px-6 overflow-hidden">
+    <section id="service-section" className="relative  from-rose-50 via-orange-50 to-amber-50 py-32 px-6 overflow-hidden">
       
       {/* Background Orbs */}
       <div className="absolute inset-0 overflow-hidden">

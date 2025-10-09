@@ -17,19 +17,9 @@ export default function WhyBusinessSection() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-rose-50 via-orange-50 to-amber-50 py-32 px-6 overflow-hidden">
+  <section className="relative bg-transparent py-32 px-6 overflow-hidden">
       
-      {/* Animated Background Orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute w-80 h-80 rounded-full bg-gradient-to-br from-amber-300/30 to-orange-400/30 blur-3xl animate-float-slow"
-          style={{ top: '10%', left: '15%' }}
-        />
-        <div 
-          className="absolute w-96 h-96 rounded-full bg-gradient-to-br from-rose-300/20 to-pink-400/20 blur-3xl animate-float-slow"
-          style={{ bottom: '10%', right: '10%' }}
-        />
-      </div>
+      {/* Removed animated background orbs for transparency */}
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-12">

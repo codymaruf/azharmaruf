@@ -1,9 +1,8 @@
 'use client';
 
-/* eslint-disable react/no-unescaped-entities */
+// import Why from './Why';
 import React, { useState, useEffect, useRef } from 'react';
 import { Camera, Code, Film, TrendingUp, ArrowRight, Play, Sparkles, LucideIcon } from 'lucide-react';
-import Form from './Form';
 
 interface MousePosition {
   x: number;
@@ -98,7 +97,15 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 flex flex-col gap-8">
         
-        
+        {/* Top Badge */}
+        {/* <div 
+          className={`inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-amber-200/50 shadow-lg transition-all duration-1000 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+          }`}
+        >
+          <Sparkles className="w-4 h-4 text-amber-600" />
+          <span className="text-sm font-medium text-amber-900">Available for Projects</span>
+        </div> */}
 
         {/* Profile photo for small devices */}
         <div className="block md:hidden w-40 h-40 mx-auto relative">
@@ -115,19 +122,19 @@ export default function HeroSection() {
           {/* Left: Headline + Text */}
           <div className="flex-1">
             {/* Main Headline */}
-            <h1 
-              className={`text-3xl md:text-4xl lg:text-6xl font-semibold leading-[1.1] mb-6 transition-all duration-1000 delay-200 ${
+            <h3 
+              className={`text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-6 transition-all duration-1000 delay-200 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ fontFamily: 'var(--font-clash), sans-serif' }}
-            > 
+            >
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-900 via-orange-800 to-rose-900">
-                Wedding Photographers: Get
+                Grow Your 
               </span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-800 via-rose-800 to-pink-900">
-                 2 Extra Clients Per Week
+                 Business Online
               </span>
-            </h1>
+            </h3>
 
             {/* Subheadline */}
             <p 
@@ -135,7 +142,7 @@ export default function HeroSection() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
             >
-              Start with a free landing page – <span className="font-semibold text-amber-900">pay only if you want to pay for it.</span>
+              Get  – <span className="font-semibold text-amber-900">Leads, Sales, and Visibility</span>
             </p>
 
             <p 
@@ -143,11 +150,42 @@ export default function HeroSection() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
             >
-              {/* I help brands and businesses build websites, create video content, and present themselves online—working even while you&apos;re taking a break. */}
-              We'll create a simple, professional landing page for your photography business. Just fill the form below – no upfront cost. You only pay if you love it and want to own it.
+              I help brands and businesses build websites, create video content, and present themselves online—working even while you&apos;re taking a break.
+             
             </p>
 
-           
+            {/* CTA Buttons */}
+            <div 
+              className={`flex flex-wrap gap-4 mb-12 transition-all duration-1000 delay-700 ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            >
+              
+              
+              
+              <button
+                className="group relative px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                onClick={() => {
+                  const section = document.getElementById('service-section');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  See How I Can Help
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </button>
+
+              <button className="group px-8 py-4 bg-white/80 backdrop-blur-sm text-amber-900 font-semibold rounded-full border-2 border-amber-200 hover:border-amber-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <span className="flex items-center gap-2">
+                  <Play className="w-5 h-5" />
+                  Watch Showreel
+                </span>
+              </button>
+            </div>
           </div>
 
           {/* Right: Profile photo for large devices */}
@@ -157,22 +195,51 @@ export default function HeroSection() {
               alt="Profile" 
               className="w-full h-full object-cover rounded-full border-4 border-white/40 shadow-lg filter grayscale hover:scale-105 transition-transform duration-300"
             />
-            
           </div>
 
-          
-
         </div>
-        <Form />
 
-        
+        {/* Services Icons */}
+        <div 
+          className={`flex flex-wrap gap-6 transition-all duration-1000 delay-900 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          {services.map((service, idx) => {
+            const IconComponent = service.icon;
+            return (
+              <div 
+                key={idx}
+                className="group flex-1 min-w-[120px] p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-amber-100 hover:border-amber-300 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+                style={{
+                  transform: `translateY(${mousePosition.y * (idx + 1) * 2}px)`,
+                  transition: 'transform 0.3s ease-out'
+                }}
+              >
+                <div className={`w-12 h-12 mb-4 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                  <IconComponent className="w-6 h-6 text-white" />
+                </div>
+                <p className="text-sm font-semibold text-gray-800">{service.label}</p>
+              </div>
+            );
+          })}
+        </div>
 
-      <p
-      className='text-center text-sm text-gray-500 mt-10'
-      >© 2025 Azhar Maruf — Helping wedding photographers get 2 extra clients per week.</p>
       </div>
 
-     
+      {/* Scroll Indicator */}
+      <div 
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-30 transition-all duration-1000 delay-1000 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-sm text-gray-600 font-medium">Scroll to explore</span>
+          <div className="w-6 h-10 border-2 border-amber-400 rounded-full flex justify-center p-1">
+            <div className="w-1.5 h-3 bg-amber-500 rounded-full animate-bounce" />
+          </div>
+        </div>
+      </div>
 
       <style jsx>{`
         @keyframes float {
@@ -194,6 +261,9 @@ export default function HeroSection() {
           animation: float linear infinite;
         }
       `}</style>
+
+      {/* <Why /> */}
+
     </div>
   );
 }

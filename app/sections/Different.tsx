@@ -11,7 +11,7 @@ export default function WhyDifferentSection() {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-b from-amber-50 via-orange-50 to-rose-50 py-32 px-6 overflow-hidden">
+    <section className="relative  from-amber-50 via-orange-50 to-rose-50 py-32 px-6 overflow-hidden">
       
       {/* Background Orbs */}
       <div className="absolute inset-0 overflow-hidden">
