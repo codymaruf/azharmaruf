@@ -3,7 +3,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect, useRef } from 'react';
 import { Camera, Code, Film, TrendingUp, ArrowRight, Play, Sparkles, LucideIcon } from 'lucide-react';
-import Form from './Form';
+import Form from '../sections/Form';
 
 interface MousePosition {
   x: number;
