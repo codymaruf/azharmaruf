@@ -43,57 +43,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <div ref={heroRef} className="relative min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-100 overflow-hidden">
-      
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient Orbs */}
-        <div 
-          className="absolute w-96 h-96 rounded-full bg-gradient-to-br from-amber-300/30 to-orange-400/30 blur-3xl"
-          style={{
-            top: '10%',
-            left: '15%',
-            transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-        <div 
-          className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-br from-rose-300/20 to-pink-400/20 blur-3xl"
-          style={{
-            bottom: '10%',
-            right: '10%',
-            transform: `translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-        <div 
-          className="absolute w-80 h-80 rounded-full bg-gradient-to-br from-yellow-300/25 to-amber-400/25 blur-3xl"
-          style={{
-            top: '50%',
-            left: '50%',
-            transform: `translate(-50%, -50%) translate(${mousePosition.x * 15}px, ${mousePosition.y * 15}px)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-
-        {/* Floating Particles */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-amber-400/30 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${5 + Math.random() * 10}s`
-            }}
-          />
-        ))}
-
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#fbbf2420_1px,transparent_1px),linear-gradient(to_bottom,#fbbf2420_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      </div>
-
+    <div ref={heroRef} className="relative min-h-screen overflow-hidden">
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 flex flex-col gap-8">
         

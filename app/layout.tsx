@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
+import Nav from './components/Nav';
+import Foot from './components/Foot';
 
 
 const inter = Inter({ 
@@ -34,7 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en">
   <body className={`${inter.variable} ${clashDisplay.variable} font-sans antialiased`}>
+        <Nav />
         {children}
+        <Foot />
       </body>
     </html>
   )

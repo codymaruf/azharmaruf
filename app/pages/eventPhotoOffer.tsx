@@ -122,12 +122,17 @@ export default function HeroSection() {
               style={{ fontFamily: 'var(--font-clash), sans-serif' }}
             > 
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-900 via-orange-800 to-rose-900">
-                Wedding Photographers: Get
+                High-Paying 
               </span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-800 via-rose-800 to-pink-900">
-                 2 Extra Clients Per Week
+                 Event Client Accelerator 
+                 <span
+            className='block text-2xl md:text-3xl font-semibold mb-4 '
+              style={{ fontFamily: 'var(--font-clash), sans-serif' }}
+              >– 10 Slots This Month</span>
               </span>
             </h1>
+            
 
             {/* Subheadline */}
             <p 
@@ -144,7 +149,7 @@ export default function HeroSection() {
               }`}
             >
               {/* I help brands and businesses build websites, create video content, and present themselves online—working even while you&apos;re taking a break. */}
-              We'll create a simple, professional landing page for your photography business. Just fill the form below – no upfront cost. You only pay if you love it and want to own it.
+              I build automated booking systems for Pro Corporate Event photographers and videographers who want to get clients without constant messaging.
             </p>
 
            
@@ -167,9 +172,7 @@ export default function HeroSection() {
 
         
 
-      <p
-      className='text-center text-sm text-gray-500 mt-10'
-      >© 2025 Azhar Maruf — Helping wedding photographers get 2 extra clients per week.</p>
+      
       </div>
 
      
