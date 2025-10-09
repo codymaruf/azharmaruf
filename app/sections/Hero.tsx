@@ -115,26 +115,21 @@ export default function HeroSection() {
               
               <button
                 className="group relative px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
-                onClick={() => {
-                  const section = document.getElementById('service-section');
-                  if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+                onClick={() => { window.location.href = '/offer'; }}
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  See How I Can Help
+                  Get Your Free site
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
 
-              <button className="group px-8 py-4 bg-white/80 backdrop-blur-sm text-amber-900 font-semibold rounded-full border-2 border-amber-200 hover:border-amber-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              {/* <button className="group px-8 py-4 bg-white/80 backdrop-blur-sm text-amber-900 font-semibold rounded-full border-2 border-amber-200 hover:border-amber-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <span className="flex items-center gap-2">
                   <Play className="w-5 h-5" />
                   Watch Showreel
                 </span>
-              </button>
+              </button> */}
             </div>
           </div>
 
