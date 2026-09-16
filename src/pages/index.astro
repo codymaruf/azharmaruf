@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import WorkCard from '../components/WorkCard.astro';
+import {
+  films, editing, stories, filmLogs, essays, reading, videos, logs, fragments, photography,
+  ordered, slugFromFile
+} from '../lib/content';
+
+const allContent = [
+  ...films, ...editing, ...stories, ...filmLogs, ...essays,
+  ...reading, ...videos, ...logs, ...fragments, ...photography
+];
+
+const recent = ordered(allContent.filter(item => item.frontmatter.recent === true));
+
+function hrefFor(item) {
+  const collection = item.file.split('/').slice(-2, -1)[0];
+  const slug = slugFromFile(item.file);
+
+  switch (collection) {
+    case 'films': return `/films/${slug}/`;
+    case 'editing': return `/editing/${slug}/`;
+    case 'stories': return `/writing/stories/${slug}/`;
+    case 'film-log': return `/writing/film-log/${slug}/`;
+    case 'essays': return `/writing/essays/${slug}/`;
+    case 'reading': return `/reading/${slug}/`;
+    case 'video-journal': return `/video-journal/${slug}/`;
+    case 'fragments': return `/fragments/${slug}/`;
+    case 'logs': return `/log/${slug}/`;
+    case 'photography': return `/photography/#${slug}`;
+    default: return '/';
+  }
+}
+---
+
+<Base title="Azhar Maruf">
+  <section class="hero container">
+    <div>
+      <div class="hero-signature">
+        <span class="hero-directed">Directed by</span>
+        <span class="hero-azhar">Azhar</span>
+        <span class="hero-maruf">Maruf</span>
+      </div>
+      <div class="hero-role">Filmmaker · Editor · Writer</div>
+    </div>
+  </section>
+
+  {recent.length > 0 && (
+    <section class="section container">
+      <div class="section-label">RECENT</div>
+      <div class="recent-grid">
+        {recent.map(item => <WorkCard item={item} href={hrefFor(item)} />)}
+      </div>
+    </section>
+  )}
+
+  <section class="section container">
+    <div class="section-label">CONTACT</div>
+    <div class="contact-block">
+      <div class="contact-sub">Write to me</div>
+      <div class="contact-links">
+        <a href="mailto:contact@azharmaruf.com">contact@azharmaruf.com</a>
+        <a href="https://wa.me/8801790400895" target="_blank" rel="noreferrer">@azharmarufworld · WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</Base>

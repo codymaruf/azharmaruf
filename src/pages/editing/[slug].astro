@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { editing, slugFromFile, youtubeId } from '../../lib/content';
+
+export function getStaticPaths() {
+  return editing.map(item => ({
+    params: { slug: slugFromFile(item.file) },
+    props: { item }
+  }));
+}
+
+const { item } = Astro.props;
+const fm = item.frontmatter;
+const id = youtubeId(fm.youtube);
+---
+
+<Base title={`${fm.title} · Editing · Azhar Maruf`}>
+  <article class="detail container">
+    <header class="detail-head">
+      <h1 class="detail-title">{fm.title}</h1>
+      <div class="detail-meta">{fm.type} · {fm.meta}</div>
+    </header>
+
+    {id && (
+      <div class="detail-media reel-media">
+        <iframe
+          class="video-frame"
+          src={`https://www.youtube.com/embed/${id}`}
+          title={fm.title}
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    )}
+
+    <div class="detail-body">
+      {fm.description && <p>{fm.description}</p>}
+
+      <div class="detail-actions">
+        {fm.youtube && <a class="text-link" href={fm.youtube} target="_blank" rel="noreferrer">WATCH VIDEO →</a>}
+        {fm.clientUrl && <a class="text-link" href={fm.clientUrl} target="_blank" rel="noreferrer">VISIT CLIENT →</a>}
+      </div>
+    </div>
+  </article>
+</Base>

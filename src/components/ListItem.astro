@@ -1,0 +1,11 @@
+---
+const { item, href, excerpt = true, action = 'READ' } = Astro.props;
+const fm = item.frontmatter;
+const meta = [fm.type, fm.year, fm.status].filter(Boolean).join(' · ');
+---
+<article class="list-item">
+  <div class="list-item-meta">{meta}</div>
+  <div class="list-item-title">{fm.title}</div>
+  {excerpt && fm.excerpt ? <div class="list-item-excerpt">{fm.excerpt}</div> : null}
+  <a class="card-action" href={href}>{action} →</a>
+</article>

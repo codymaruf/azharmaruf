@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import { fragments } from '../../lib/content';
+---
+<Base title="Fragments · Azhar Maruf">
+  <section class="page-intro container"><h1 class="page-title">Fragments</h1><p class="page-subtitle">The digital drawer. Unfinished films, stories, thoughts, sentences and other things that don't need to become anything.</p></section>
+  <section class="section container"><div class="file-grid">{fragments.map(item => <a class="file-card" href={`/fragments/${item.file.split('/').pop()?.replace('.md','')}/`}><span class="file-name">{item.frontmatter.title}</span><span class="file-meta">fragment</span></a>)}</div></section>
+</Base>

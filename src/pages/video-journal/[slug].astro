@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import { videos, slugFromFile, youtubeId } from '../../lib/content';
+export function getStaticPaths() { return videos.map(item => ({ params: { slug: slugFromFile(item.file) }, props: { item } })); }
+const { item } = Astro.props; const fm = item.frontmatter; const id = youtubeId(fm.youtube);
+---
+<Base title={`${fm.title} · Video Journal · Azhar Maruf`}>
+  <article class="detail container"><header class="detail-head"><h1 class="detail-title">{fm.title}</h1><div class="detail-meta">Video Journal</div></header>{id && <div class="detail-media"><iframe class="video-frame" src={`https://www.youtube.com/embed/${id}`} title={fm.title} allowfullscreen loading="lazy"></iframe></div>}<div class="detail-body"><item.Content /></div></article>
+</Base>

@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import GalleryCard from '../../components/GalleryCard.astro';
+import { films, ordered } from '../../lib/content';
+---
+<Base title="Films · Azhar Maruf">
+  <section class="page-intro container"><h1 class="page-title">Films</h1></section>
+  {ordered(films).length > 0 && <section class="section container"><div class="section-label">Finished</div><div class="gallery-grid">{ordered(films).map(item => <GalleryCard item={item} href={`/films/${item.file.split('/').pop()?.replace('.md','')}/`} />)}</div></section>}
+</Base>

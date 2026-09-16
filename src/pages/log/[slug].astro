@@ -1,0 +1,7 @@
+---
+import Base from '../../layouts/Base.astro';
+import { logs, slugFromFile } from '../../lib/content';
+export function getStaticPaths() { return logs.filter(item => !item.file.endsWith('README.md')).map(item => ({ params: { slug: slugFromFile(item.file) }, props: { item } })); }
+const { item } = Astro.props; const fm = item.frontmatter;
+---
+<Base title={`${fm.date ?? ''} · Current Log · Azhar Maruf`}><article class="detail container"><header class="detail-head"><h1 class="detail-title">{fm.title ?? 'Current Log'}</h1><div class="detail-meta">{fm.date ?? ''}</div></header><div class="detail-body"><item.Content /></div></article></Base>

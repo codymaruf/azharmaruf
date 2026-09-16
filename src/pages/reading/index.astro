@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import GalleryCard from '../../components/GalleryCard.astro';
+import { reading, ordered } from '../../lib/content';
+---
+<Base title="Reading · Azhar Maruf">
+  <section class="page-intro container"><h1 class="page-title">Reading</h1></section>
+  <section class="section container"><div class="gallery-grid">{ordered(reading).map(item => <GalleryCard item={item} href={`/reading/${item.file.split('/').pop()?.replace('.md','')}/`} action={item.frontmatter.status === 'Reading' ? 'CONTINUE' : 'READ'} />)}</div></section>
+</Base>

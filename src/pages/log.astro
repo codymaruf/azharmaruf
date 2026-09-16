@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import { logs } from '../lib/content';
+const realLogs = logs.filter(item => !item.file.endsWith('README.md'));
+const sorted = [...realLogs].sort((a,b) => String(b.frontmatter.date ?? '').localeCompare(String(a.frontmatter.date ?? '')));
+---
+<Base title="Current Log · Azhar Maruf">
+  <section class="page-intro container"><h1 class="page-title">Current Log</h1></section>
+  {sorted.length === 0 ? <section class="section container"><div class="detail-body"><p>No log entries yet.</p></div></section> : <section class="section container"><div class="list-grid">{sorted.map(item => <article class="list-item"><div class="list-item-meta">{item.frontmatter.date ?? ''}</div><div class="list-item-title">{item.frontmatter.title ?? ''}</div><a class="card-action" href={`/log/${item.file.split('/').pop()?.replace('.md','')}/`}>READ →</a></article>)}</div></section>}
+</Base>

@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import { reading, slugFromFile } from '../../lib/content';
+export function getStaticPaths() { return reading.map(item => ({ params: { slug: slugFromFile(item.file) }, props: { item } })); }
+const { item } = Astro.props; const fm = item.frontmatter;
+---
+<Base title={`${fm.title} · Reading · Azhar Maruf`}>
+  <article class="detail container">
+    <header class="detail-head"><h1 class="detail-title">{fm.title}</h1><div class="detail-meta">Reading · {fm.status}{fm.started ? ` · Started ${fm.started}` : ''}</div></header>
+    <div class="detail-body" style="margin-top:70px"><item.Content /></div>
+    {fm.status === 'Reading' && <div class="book-notes"><div class="section-label">Notes</div><div class="book-entry"><div class="book-entry-meta">Add notes here</div><div class="book-entry-body">Open this book's Markdown file and add dated notes as you read. The site will display them here.</div></div></div>}
+  </article>
+</Base>

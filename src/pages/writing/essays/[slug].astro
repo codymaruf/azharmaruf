@@ -1,0 +1,9 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { essays, slugFromFile } from '../../../lib/content';
+export function getStaticPaths() { return essays.map(item => ({ params: { slug: slugFromFile(item.file) }, props: { item } })); }
+const { item } = Astro.props; const fm = item.frontmatter;
+---
+<Base title={`${fm.title} · Azhar Maruf`}>
+  <article class="detail container"><header class="detail-head"><h1 class="detail-title">{fm.title}</h1><div class="detail-meta">Essay / Journal</div></header><div class="detail-body"><item.Content />{fm.substack && <p><a class="text-link" href={fm.substack} target="_blank" rel="noreferrer">ORIGINAL ON SUBSTACK →</a></p>}</div></article>
+</Base>

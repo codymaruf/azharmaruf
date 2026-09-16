@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import GalleryCard from '../../components/GalleryCard.astro';
+import { stories, filmLogs, essays, ordered } from '../../lib/content';
+---
+<Base title="Writing · Azhar Maruf">
+  <section class="page-intro container"><h1 class="page-title">Writing</h1></section>
+  <section class="section container"><div class="section-label">Stories</div><div class="gallery-grid">{ordered(stories).map(item => <GalleryCard item={item} href={`/writing/stories/${item.file.split('/').pop()?.replace('.md','')}/`} action="READ" />)}</div></section>
+  <section class="section container"><div class="section-label">Film Log</div><div class="gallery-grid">{ordered(filmLogs).map(item => <GalleryCard item={item} href={`/writing/film-log/${item.file.split('/').pop()?.replace('.md','')}/`} action="READ" />)}</div></section>
+  <section class="section container"><div class="section-label">Essays / Journal</div><div class="gallery-grid">{ordered(essays).map(item => <GalleryCard item={item} href={`/writing/essays/${item.file.split('/').pop()?.replace('.md','')}/`} action="READ" />)}</div></section>
+</Base>

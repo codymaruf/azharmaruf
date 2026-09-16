@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import GalleryCard from '../../components/GalleryCard.astro';
+import { editing, films, videos, ordered, slugFromFile } from '../../lib/content';
+
+const video05 = videos.find(item => item.frontmatter.order === 5);
+const video04 = videos.find(item => item.frontmatter.order === 4);
+
+const work = [
+  ...(editing.map(item => ({ item, displayOrder: 1 }))),
+  ...(films.map(item => ({ item, displayOrder: 2 }))),
+  ...(video05 ? [{ item: video05, displayOrder: 3 }] : []),
+  ...(video04 ? [{ item: video04, displayOrder: 4 }] : [])
+].sort((a, b) => a.displayOrder - b.displayOrder).map(entry => entry.item);
+
+function hrefFor(item) {
+  const collection = item.file.split('/').slice(-2, -1)[0];
+  const slug = slugFromFile(item.file);
+  if (collection === 'films') return `/films/${slug}/`;
+  if (collection === 'video-journal') return `/video-journal/${slug}/`;
+  return `/editing/${slug}/`;
+}
+---
+
+<Base title="Editing · Azhar Maruf">
+  <section class="page-intro container">
+    <h1 class="page-title">EDITING</h1>
+    <p class="page-subtitle editing-intro">
+      If you want an editor specialised in filmmaking and storytelling, I’m here to edit your reels. Documentaries. Commercial pieces.
+    </p>
+  </section>
+
+  <section class="section container">
+    <div class="section-label">WORK</div>
+
+    <div class="gallery-grid">
+      {ordered(work).map(item => <GalleryCard item={item} href={hrefFor(item)} />)}
+    </div>
+
+    <p class="editing-statement">Films and videos I’ve made and edited.</p>
+  </section>
+
+  <section class="section container">
+    <div class="section-label">CONTACT</div>
+    <div class="contact-block">
+      <div class="contact-sub">For editing work</div>
+      <div class="contact-links">
+        <a href="mailto:contact@azharmaruf.com">contact@azharmaruf.com</a>
+        <a href="https://wa.me/8801790400895" target="_blank" rel="noreferrer">@azharmarufworld · WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</Base>

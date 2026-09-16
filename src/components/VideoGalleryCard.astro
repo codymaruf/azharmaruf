@@ -1,0 +1,27 @@
+---
+import { youtubeId } from '../lib/content';
+
+const { item, href } = Astro.props;
+const fm = item.frontmatter;
+const id = youtubeId(fm.youtube);
+const image = fm.image || (id ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg` : '');
+const meta = [fm.type, fm.date].filter(Boolean).join(' · ');
+---
+
+<a class={`gallery-card ${image ? '' : 'no-visual'}`} href={href}>
+  {image && (
+    <div class="gallery-card-media">
+      <img
+        src={image}
+        alt={fm.title}
+        loading="lazy"
+        onerror={`this.onerror=null;this.src='https://img.youtube.com/vi/${id}/hqdefault.jpg'`}
+      />
+    </div>
+  )}
+
+  <div class="gallery-card-meta">{meta}</div>
+  <div class="gallery-card-title">{fm.title}</div>
+  {fm.description && <div class="gallery-card-description">{fm.description}</div>}
+  <span class="card-action">{fm.description ? 'READ' : 'SEE MORE'} →</span>
+</a>

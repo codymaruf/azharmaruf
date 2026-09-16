@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import { photography, ordered } from '../../lib/content';
+---
+
+<Base title="Photography · Azhar Maruf">
+  <section class="page-intro container">
+    <h1 class="page-title">PHOTOGRAPHY</h1>
+  </section>
+
+  <section class="section container">
+    <div class="photo-grid">
+      {ordered(photography).map(photo => (
+        <button
+          class="photo-item"
+          id={photo.file.split('/').pop()?.replace('.md', '')}
+          data-lightbox-src={photo.frontmatter.image}
+          data-lightbox-caption={photo.frontmatter.description || ''}
+          aria-label={`Open ${photo.frontmatter.title}`}
+        >
+          <img src={photo.frontmatter.image} alt={photo.frontmatter.title} loading="lazy" />
+          {photo.frontmatter.description && <span class="photo-description">{photo.frontmatter.description}</span>}
+          <span class="photo-action">SEE MORE →</span>
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+    <div class="lightbox-inner">
+      <img id="lightbox-image" src="" alt="" />
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    const box = document.querySelector('#lightbox');
+    const image = document.querySelector('#lightbox-image');
+    const caption = document.querySelector('#lightbox-caption');
+
+    document.querySelectorAll('[data-lightbox-src]').forEach(el => {
+      el.addEventListener('click', () => {
+        image.src = el.dataset.lightboxSrc;
+        image.alt = el.querySelector('img')?.alt || '';
+        caption.textContent = el.dataset.lightboxCaption || '';
+        box.classList.add('is-open');
+        box.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    const close = () => {
+      box.classList.remove('is-open');
+      box.setAttribute('aria-hidden', 'true');
+      image.src = '';
+    };
+
+    document.querySelector('#lightbox-close')?.addEventListener('click', close);
+    box?.addEventListener('click', e => { if (e.target === box) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  </script>
+</Base>

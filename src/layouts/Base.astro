@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+import SocialIcons from '../components/SocialIcons.astro';
+
+const { title = 'Azhar Maruf' } = Astro.props;
+
+const nav = [
+  ['HOME', '/'],
+  ['FILMS', '/films/'],
+  ['EDITING', '/editing/'],
+  ['WRITING', '/writing/'],
+  ['PHOTOGRAPHY', '/photography/'],
+  ['READING', '/reading/'],
+  ['VIDEO JOURNAL', '/video-journal/'],
+  ['ABOUT', '/about/'],
+  ['CONTACT', '/contact/']
+];
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Azhar Maruf. Filmmaker · Editor · Writer." />
+  <title>{title}</title>
+</head>
+<body>
+  <header class="site-header">
+    <button class="menu-button" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false">MENU</button>
+
+    <a href="/" class="header-signature" aria-label="Azhar Maruf, home">
+      <span class="header-directed">Directed by</span>
+      <span class="header-azhar">Azhar</span>
+      <span class="header-maruf">Maruf</span>
+    </a>
+
+    <SocialIcons class="header-socials" />
+  </header>
+
+  <aside class="menu-panel" id="site-menu" aria-hidden="true">
+    <div class="menu-top">
+      <span>MENU</span>
+      <button class="menu-close" aria-label="Close menu">CLOSE</button>
+    </div>
+
+    <nav class="menu-list" aria-label="Main navigation">
+      {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+    </nav>
+
+    <div class="menu-bottom">
+      <SocialIcons class="menu-socials" />
+      <a class="menu-fragments" href="/fragments/">FRAGMENTS</a>
+    </div>
+  </aside>
+
+  <main><slot /></main>
+
+  <footer class="site-footer">
+    <span>© AZHAR MARUF</span>
+    <SocialIcons class="footer-socials" expanded />
+    <a class="footer-fragments" href="/fragments/">FRAGMENTS</a>
+  </footer>
+
+  <script>
+    const panel = document.querySelector('.menu-panel');
+    const openButton = document.querySelector('.menu-button');
+    const closeButton = document.querySelector('.menu-close');
+    let lastY = window.scrollY;
+
+    const toggleMenu = (open) => {
+      panel?.classList.toggle('is-open', open);
+      panel?.setAttribute('aria-hidden', String(!open));
+      openButton?.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    openButton?.addEventListener('click', () => toggleMenu(true));
+    closeButton?.addEventListener('click', () => toggleMenu(false));
+
+    panel?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    window.addEventListener('scroll', () => {
+      const currentY = window.scrollY;
+      if (currentY > lastY && currentY > 80) document.body.classList.add('nav-hidden');
+      if (currentY < lastY) document.body.classList.remove('nav-hidden');
+      lastY = currentY;
+    }, { passive: true });
+  </script>
+</body>
+</html>

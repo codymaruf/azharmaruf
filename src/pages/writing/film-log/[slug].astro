@@ -1,0 +1,9 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { filmLogs, slugFromFile } from '../../../lib/content';
+export function getStaticPaths() { return filmLogs.map(item => ({ params: { slug: slugFromFile(item.file) }, props: { item } })); }
+const { item } = Astro.props; const fm = item.frontmatter;
+---
+<Base title={`${fm.title} · Film Log · Azhar Maruf`}>
+  <article class="detail container"><header class="detail-head"><h1 class="detail-title">{fm.title}</h1><div class="detail-meta">Film Log · {fm.year}</div></header><div class="detail-body"><item.Content />{fm.letterboxd && <p><a class="text-link" href={fm.letterboxd} target="_blank" rel="noreferrer">LETTERBOXD →</a></p>}</div></article>
+</Base>

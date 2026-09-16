@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import VideoGalleryCard from '../../components/VideoGalleryCard.astro';
+import { videos, ordered } from '../../lib/content';
+---
+<Base title="Video Journal · Azhar Maruf">
+  <section class="page-intro container"><h1 class="page-title">Video Journal</h1></section>
+  <section class="section container"><div class="gallery-grid">{ordered(videos).map(item => <VideoGalleryCard item={item} href={`/video-journal/${item.file.split('/').pop()?.replace('.md','')}/`} />)}</div></section>
+</Base>

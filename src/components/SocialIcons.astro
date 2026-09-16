@@ -1,0 +1,15 @@
+---
+const { class: className = '', expanded = false } = Astro.props;
+const icons = [
+  { key: 'youtube', label: 'YouTube', href: 'https://youtube.com/@azharmaruf', path: '<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8Z"/><path d="m9.8 15.8 5.8-3.8-5.8-3.8v7.6Z" fill="currentColor" stroke="none"/>' },
+  { key: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61574481545132', path: '<path d="M14 8h3V4h-3c-3.3 0-5 1.8-5 5v3H6v4h3v8h4v-8h3.2l.8-4H13V9c0-.7.3-1 1-1Z"/>' },
+  { key: 'x', label: 'X', href: 'https://x.com/azharmarufworld', path: '<path d="M5 4h4.4l3.1 4.4L16.3 4H19l-5.2 6 5.8 10h-4.4l-3.5-5.1L7.1 20H4.4l5.8-6.7L5 4Zm3.5 1.8 7.6 12.4h1.2L9.7 5.8H8.5Z"/>' },
+  { key: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/azharmarufworld/', path: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>' },
+  { key: 'letterboxd', label: 'Letterboxd', href: 'https://boxd.it/fWGiD', path: '<circle cx="8" cy="12" r="4"/><circle cx="12" cy="12" r="4"/><circle cx="16" cy="12" r="4"/>' },
+  { key: 'mail', label: 'Mail', href: 'mailto:contact@azharmaruf.com', path: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/>' },
+  { key: 'substack', label: 'Substack', href: 'https://substack.com/@azharmaruf', path: '<path d="M4 5h16M4 9h16M4 13h16M4 18l8-4 8 4V4H4v14Z"/>' }
+];
+---
+<div class={`social-icons ${className}`} aria-label="Social media">
+  {(expanded ? icons : icons.slice(0, 4)).map(icon => <a href={icon.href} target="_blank" rel="noreferrer" aria-label={icon.label} title={icon.label} set:html={`<svg viewBox="0 0 24 24" aria-hidden="true">${icon.path}</svg>`} />)}
+</div>
