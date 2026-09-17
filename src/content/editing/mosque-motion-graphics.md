@@ -1,5 +1,5 @@
 ---
-title: A Mosque, with Motion Graphics
+title: Client work for a UK based mosque
 meta: Jami Mosque and Islamic Centre Birmingham
 type: Editing
 recent: true

@@ -3,7 +3,7 @@ title: কুলসুমা
 type: Story
 order: 1
 description: A boy chooses between a football match and taking care of his younger sister on a stormy night.
-recent: false
+recent: true
 ---
 ২৪ জুন, ১৯৯০। রাতে, আর্জেন্টিনা ও ব্রাজিলের খেলা।
 
