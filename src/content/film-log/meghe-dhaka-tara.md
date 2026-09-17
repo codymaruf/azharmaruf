@@ -1,6 +1,6 @@
 ---
-title: Apur Sansar
-year: 1959
+title: The Cloud-Capped Star
+year: 1960
 type: Film Log
 letterboxd: https://boxd.it/gmc6ah
 order: 2
