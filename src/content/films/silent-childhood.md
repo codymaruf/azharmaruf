@@ -8,4 +8,4 @@ type: Film
 youtube: https://www.youtube.com/watch?v=_xhg16QRYHo
 description: A boy escapes from his father.
 ---
-A boy living far away from care and love. And experiencing domestic violence. 
+A boy leaving far away from care and love. And experiencing domestic violence. 
